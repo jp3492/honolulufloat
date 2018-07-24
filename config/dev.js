@@ -1,4 +1,4 @@
 module.exports = {
-  secret: '',
+  secret: 'magicforlife',
   mongo_uri: ''
 }
