@@ -10,6 +10,7 @@ const cors = require('cors')
 const jwt = require('jwt-simple')
 const config = require('./config/config')
 
+//connect to db in production, saved in config keys
 // mongoose.connect('');
 
 app.use(cors());
