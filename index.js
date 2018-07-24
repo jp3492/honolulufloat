@@ -10,7 +10,7 @@ const cors = require('cors')
 const jwt = require('jwt-simple')
 const config = require('./config/config')
 
-mongoose.connect('');
+// mongoose.connect('');
 
 app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
