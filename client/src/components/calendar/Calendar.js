@@ -17,6 +17,4 @@ class Calendar extends Component{
     )
   }
 }
-//in production use requireAuth
-// export default requireAuth(Calendar)
-export default Calendar
+export default requireAuth(Calendar)

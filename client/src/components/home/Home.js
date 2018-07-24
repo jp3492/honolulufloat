@@ -18,6 +18,4 @@ class Home extends Component{
     )
   }
 }
-//in production use requireAuth
-// export default requireAuth(Home)
-export default Home
+export default requireAuth(Home)

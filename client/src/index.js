@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import reduxThunk from 'redux-thunk'
@@ -25,7 +25,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <App>
         <Route path="/" exact component={Welcome} />
         <Route path="/signup" component={Signup} />
@@ -34,7 +34,7 @@ ReactDOM.render(
         <Route path="/home" component={Home} />
         <Route path="/calendar" component={Calendar} />
       </App>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.querySelector('#root')
 )

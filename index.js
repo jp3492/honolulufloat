@@ -10,8 +10,7 @@ const cors = require('cors')
 const jwt = require('jwt-simple')
 const config = require('./config/config')
 
-//connect to db in production, saved in config keys
-// mongoose.connect('');
+mongoose.connect('mongodb://localhost:27017/auth');
 
 app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));

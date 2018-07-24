@@ -12,10 +12,8 @@ class Header extends Component {
         </div>
       )
     } else {
-      //remove calendar route in production
       return (
         <div>
-          <Link style={{ textDecoration: 'none' }} to="/calendar">Calendar</Link>
           <Link style={{ textDecoration: 'none' }} to="/signup">Sign Up</Link>
           <Link style={{ textDecoration: 'none' }} to="/signin">Sign In</Link>
         </div>
