@@ -1,0 +1,186 @@
+#home {
+  grid-area: body;
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-template-rows: 40px auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-areas:
+   "upcomingHeader upcomingHeader profile"
+   "upcoming upcoming profile"
+   "upcoming upcoming profile"
+   "past past profile"
+}
+#upcomingHeader {
+  grid-area: upcomingHeader;
+  line-height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: row;
+}
+#upcomingHeader * {
+  flex: 1;
+}
+#upcomingHeader > a {
+  text-align: right;
+}
+#upcoming {
+  grid-area: upcoming;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+.appointment {
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: var(--green);
+  border-radius: var(--general-border-radius);
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+#appointmentHeader {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--primary-text) !important;
+  pointer-events: none;
+}
+
+.appointment * {
+  color: var(--primary-text);
+}
+.appointment:hover {
+  box-shadow: var(--general-shadow);
+}
+.appointment > a {
+  font-weight: bold;
+  line-height: 60px;
+  padding-left: var(--general-padding);
+  padding-right: var(--general-padding);
+}
+.appointment > a:nth-child(1){
+  width: 100px;
+  text-align: left;
+}
+.appointment > a:nth-child(2){
+  width: 100px;
+  text-align: left;
+}
+.appointment > a:nth-child(3){
+  width: 100px;
+  text-align: left;
+}
+.appointment > a:nth-child(4){
+  flex: 1;
+  text-align: left;
+}
+.appointment > .button {
+  background-color: var(--primary-light);
+  height: 40px;
+  line-height: 40px;
+  width: 120px;
+  margin-top: var(--general-padding);
+  margin-bottom: var(--general-padding);
+  font-weight: bold;
+  text-align: center;
+  border-radius: var(--general-border-radius);
+}
+#makeBooking {
+  list-style-type: none !important;
+  text-align: right;
+  background-color: transparent !important;
+  height: 60px;
+  line-height: 60px;
+  margin-top: 20px !important;
+}
+#makeBooking > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-radius: var(--general-border-radius);
+  width: 200px !important;
+  background-color: var(--green);
+  cursor: pointer;
+  transition: var(--general-transition);
+}
+#makeBooking > a:hover {
+  box-shadow: var(--general-shadow);
+}
+.book {
+  background-color: var(--green) !important;
+}
+.appointment > .button:hover {
+  box-shadow: var(--general-shadow);
+}
+.reservation {
+  background-color: var(--secondary) !important;
+}
+#past {
+  grid-area: past;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+#past > div {
+  width: 200px;
+  text-align: center;
+}
+#profile {
+  grid-area: profile;
+  background-color: var(--bright-text);
+}
+#profile > h3 {
+  padding: 20px;
+}
+#profileHeader {
+  display: flex;
+  flex-direction: row;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+#profileHeader > i {
+  line-height: 40px;
+  text-align: center;
+  font-size: 24px;
+  width: 40px;
+  transition: var(--general-transition);
+  cursor: pointer;
+  border-radius: var(--general-border-radius);
+}
+#profileHeader > i:hover {
+  background-color: var(--primary-light);
+}
+#profileHeader > h3 {
+  height: 40px;
+  line-height: 40px;
+  flex: 1;
+}
+#picture {
+  margin-top: var(--general-padding);
+}
+#picture > img {
+  width: 370px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#infos {
+  margin-top: 0 !important;
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+  padding: 0;
+}
+.info {
+  list-style-type: none !important;
+  padding: 15px !important;
+}
+.info > a {
+  color: var(--primary-text)
+}
+.info > a:nth-child(2) {
+  float: right;
+}

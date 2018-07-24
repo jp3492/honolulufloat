@@ -1,0 +1,48 @@
+@import "./styles/mobile/mobile.css" screen and (min-width: 481px) and (max-width: 767px);
+@import "./styles/tablet/tablet.css" screen and  (min-width: 768px) and (max-width: 1024px);
+@import "./styles/desktop/desktop.css" screen and (min-width: 1025px);
+:root {
+  --primary: #3F51B5;
+  --primary-light: #C5CAE9;
+  --primary-dark: #303F9F;
+  --green: #8BC34A;
+  --secondary: #FFC107;
+  --bright-text: #FFFFFF;
+  --primary-text: #212121;
+  --secondary-text: #757575;
+  --general-padding: 10px;
+  --general-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+  --general-border-radius: 3px;
+  --general-transition: all 0.5s cubic-bezier(.25,.8,.25,1);
+}
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+}
+h3, h2, h1, h4 {
+  margin: 0;
+}
+#wrapper {
+  width: 100%;
+  display: grid;
+}
+#home {
+  display: grid;
+  width: 100%;
+}
+#header {
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary);
+  margin: 0;
+}
+#header * {
+  color: var(--bright-text);
+}
+#header a {
+  margin: 0 10px;
+}

@@ -1,0 +1,10 @@
+#wrapper {
+  display: grid;
+  grid-template-columns: auto 1200px auto;
+  grid-template-rows: 60px auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-template-areas:
+   "header header header"
+   ". body ."
+}

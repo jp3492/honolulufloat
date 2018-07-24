@@ -1,0 +1,6 @@
+#header {
+  grid-area: header;
+  position: fixed;
+  width: 100%;
+  box-shadow: var(--general-shadow)
+}
