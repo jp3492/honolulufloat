@@ -7,10 +7,28 @@ import { DISPLAY } from '../../actions/types'
 class CalendarHeader extends Component{
   render(){
     const { weekCalendar, week, day, dispatch } = this.props
-    const now = new Date()
-    const addTime = now.setDate(now.getDate() + day)
-    const selectedTime = new Date(addTime)
+    let addTime, weekStart, weekEnd
+    let timeSpan = {}
     const calendarType = (weekCalendar === true) ? 'week': 'day'
+    const now = new Date()
+    if (weekCalendar === true) {
+      addTime = now.setDate(now.getDate() + (week * 7))
+      addTime = new Date(addTime)
+      const add =
+      weekStart = addTime
+      weekStart.setDate(addTime.getDate() - (addTime.getDay() - 1))
+      weekStart = new Date(weekStart)
+      weekEnd = addTime
+      weekEnd.setDate(addTime.getDate() + (addTime.getDay() + 6))
+      weekEnd = new Date(weekEnd)
+      timeSpan.start = weekStart.getMonth()+'.'+weekStart.getDate()+'.'+weekStart.getFullYear()
+      timeSpan.end = weekEnd.getMonth()+'.'+weekEnd.getDate()+'.'+weekEnd.getFullYear()
+    } else {
+      addTime = now.setDate(now.getDate() + day)
+      addTime = new Date(addTime)
+      timeSpan.start = days[addTime.getDay()]
+      timeSpan.end = addTime.getMonth()+'.'+addTime.getDate()+'.'+addTime.getFullYear()
+    }
     return (
       <div id="calendarHeader">
         <h2>Calendar</h2>
@@ -28,9 +46,9 @@ class CalendarHeader extends Component{
              chevron_left
           </i>
           <div id="week">
-            {days[selectedTime.getDay()]}
+            {timeSpan.start}
             {' '+'-'+' '}
-            {selectedTime.getMonth()+'.'+selectedTime.getDate()+'.'+selectedTime.getYear()}
+            {timeSpan.end}
           </div>
           <i className="material-icons"
              onClick={() => dispatch({ type: DISPLAY, payload: { key: calendarType, value: this.props[calendarType] + 1 }})}>
