@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import React, { Component } from 'react'
+import { reduxForm, Field } from 'redux-form'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
 import './auth.css'
 
 class Signup extends Component {
   onSubmit = formProps => {
     this.props.signup(formProps, () => {
-      this.props.history.push('/feature');
-    });
-  };
+      this.props.history.push('/home')
+    })
+  }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit } = this.props
 
     return (
       <form className="authForm" onSubmit={handleSubmit(this.onSubmit)}>
@@ -50,15 +50,15 @@ class Signup extends Component {
           <button>Sign In!</button>
         </div>
       </form>
-    );
+    )
   }
 }
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.errorMessage };
+  return { errorMessage: state.auth.errorMessage }
 }
 
 export default compose(
   connect(mapStateToProps, actions),
   reduxForm({ form: 'signup' })
-)(Signup);
+)(Signup)

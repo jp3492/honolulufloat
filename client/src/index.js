@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import reduxThunk from 'redux-thunk'
 import logger from 'redux-logger'
+import {authMiddleware} from './general/authMiddleware'
 
 import reducers from './reducers'
 import App from './components/App'

@@ -10,3 +10,12 @@ exports.times = [
   ['6pm', '7pm'],
   ['7pm', '8pm']
 ]
+exports.days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
+]

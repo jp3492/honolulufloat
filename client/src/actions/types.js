@@ -1,2 +1,5 @@
-export const AUTH_USER = 'auth_user';
-export const AUTH_ERROR = 'auth_error';
+export const AUTH_USER = 'auth_user'
+export const AUTH_ERROR = 'auth_error'
+export const DISPLAY = 'display'
+export const EDIT = 'edit'
+export const GET_USER = 'get_user'

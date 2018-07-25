@@ -18,13 +18,26 @@
 }
 #calendarHeader > h2 {
   padding-left: var(--general-padding);
-  width: 100px;
+  width: 120px;
+}
+#calendarHeader > i {
+  width: 50px;
+  text-align: center;
+  font-size: 34px;
+  color: var(--primary-text);
+  cursor: pointer;
+}
+#calendarHeader > i:nth-child(3) {
+  font-size: 36px !important;
 }
 #weekStats {
   width: 500px;
   text-align: center;
   display: flex;
   padding-right: 20px;
+}
+.calendarSelected {
+  color: orange !important;
 }
 .weekStat {
   flex: 1;
@@ -62,7 +75,7 @@
   flex-direction: row;
 }
 #weeks > i {
-  width: 125px;
+  width: 100px;
   text-align: center;
   font-size: 34px;
   font-weight: bold;
@@ -80,7 +93,7 @@
   text-align: center;
   line-height: 40px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 #calendarTimes {
   grid-area: times;

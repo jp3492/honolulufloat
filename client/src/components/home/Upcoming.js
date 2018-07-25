@@ -2,27 +2,24 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const Appointment = ({ day, date, time, status }) => {
-  const appClass = (status === 'reserved') ? 'appointment reservation': 'appointment'
-  return (
-    <li className={appClass}>
-      <a>{day}</a>
-      <a>{date}</a>
-      <a>{time}</a>
-      <a>{status}</a>
-      <a>{(status === 'reserved') ? "Expires in: 04:34h": null}</a>
-      <a className="button">{(status === 'booked') ? 'Cancel': 'Book'}</a>
-    </li>
-  )
-}
+import { DISPLAY } from '../../actions/types'
 
 class Upcoming extends Component{
+  Appointment({ day, date, time, status }){
+    const appClass = (status === 'reserved') ? 'appointment reservation': 'appointment'
+    return (
+      <li className={appClass}>
+        <a>{day}</a>
+        <a>{date}</a>
+        <a>{time}</a>
+        <a>{status}</a>
+        <a>{(status === 'reserved') ? "Expires in: 04:34h": null}</a>
+        <a className="button">{(status === 'booked') ? 'Cancel': 'Book'}</a>
+      </li>
+    )
+  }
   render(){
-    const appointments = [
-      { date: "12.8.2018", time: '8am', day: 'Monday', status: "booked" },
-      { date: "15.8.2018", time: '12pm', day: 'Friday', status: "reserved" },
-      { date: "21.8.2018", time: '3pm', day: 'Tuesday', status: "booked" }
-    ]
+    const { bookings } = this.props
     return (
       <ul id="upcoming">
         <li id="appointmentHeader" className="appointment">
@@ -33,10 +30,14 @@ class Upcoming extends Component{
           <a>Infos</a>
           <a>Actions</a>
         </li>
-        {appointments.map( a => { return Appointment(a) } )}
-        <li id="makeBooking"><a>Make Booking</a></li>
+        {(bookings.length === 0) ? <li id="noUpcoming">You have no upcoming Sessions...</li>:null }
+        {bookings.map( a => { return this.Appointment(a) } )}
+        <li id="makeBooking"><Link style={{ textDecoration: 'none' }} to="/calendar"><a>Book a Session</a></Link></li>
       </ul>
     )
   }
 }
-export default Upcoming
+const mapStateToProps = ({ data: { bookings } }) => {
+  return { bookings }
+}
+export default connect(mapStateToProps)(Upcoming)

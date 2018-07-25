@@ -10,6 +10,10 @@ const bookingSchema = new Schema({
   status: {
     type: String,
     default: 'booked'
+  },
+  worker: {
+    type: Schema.Types.ObjectId,
+    ref: 'user'
   }
 }, { timestamps: true });
 

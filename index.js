@@ -7,19 +7,29 @@ const app = express()
 const router = require('./router')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const jwt = require('jwt-simple')
 const config = require('./config/config')
 
-mongoose.connect('mongodb://localhost:27017/auth');
+mongoose.connect('mongodb://localhost:27017/float')
 
-app.use(cors());
-app.use(bodyParser.json({ type: '*/*' }));
+app.use(cors())
+app.use(cookieParser())
+app.use(bodyParser.json({ type: '*/*' }))
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  next()
+})
 
-app.use('/static', express.static(path.join(__dirname, 'public')))
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+  app.get('*', (req, res) => { res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')) })
+}
 
-const port = process.env.PORT || 3090;
-const server = http.createServer(app);
+const port = process.env.PORT || 3090
+const server = http.createServer(app)
 
-router(app);
+router(app)
 
 server.listen(port, () => console.log('Server listening on:', port))

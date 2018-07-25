@@ -19,6 +19,7 @@
     "bcrypt-nodejs": "*",
     "body-parser": "*",
     "concurrently": "^3.6.1",
+    "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "express": "*",
     "jsonwebtoken": "^8.3.0",
@@ -29,6 +30,7 @@
     "passport": "*",
     "passport-jwt": "*",
     "passport-local": "*",
+    "redux-api-middleware": "^2.3.0",
     "ws": "^5.2.2"
   }
 }
