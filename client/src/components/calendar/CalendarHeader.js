@@ -26,7 +26,7 @@ class CalendarHeader extends Component{
     } else {
       addTime = now.setDate(now.getDate() + day)
       addTime = new Date(addTime)
-      timeSpan.start = days[addTime.getDay()]
+      timeSpan.start = days[addTime.getDay() - 1]
       timeSpan.end = addTime.getMonth()+'.'+addTime.getDate()+'.'+addTime.getFullYear()
     }
     return (
@@ -46,7 +46,7 @@ class CalendarHeader extends Component{
              chevron_left
           </i>
           <div id="week">
-            {timeSpan.start}
+            {(timeSpan.start === undefined) ? 'Sunday': timeSpan.start}
             {' '+'-'+' '}
             {timeSpan.end}
           </div>

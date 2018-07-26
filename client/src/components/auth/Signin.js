@@ -8,7 +8,9 @@ import './auth.css'
 class Signin extends Component {
   onSubmit = formProps => {
     this.props.signin(formProps, () => {
-      this.props.history.push('/home')
+      this.props.getUser(() => {
+        this.props.history.push('/home')
+      })
     })
   }
   render() {

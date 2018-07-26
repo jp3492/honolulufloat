@@ -4,7 +4,7 @@ import { times } from '../../general/static'
 
 const time = time => {
   return (
-    <li id={time[0]} className="time">
+    <li key={time[0]} id={time[0]} className="time">
       <b>{time[0]}</b>
       <b>-</b>
       <b>{time[1]}</b>

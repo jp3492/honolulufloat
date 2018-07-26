@@ -8,7 +8,9 @@ import './auth.css'
 class Signup extends Component {
   onSubmit = formProps => {
     this.props.signup(formProps, () => {
-      this.props.history.push('/home')
+      this.props.getUser(() => {
+        this.props.history.push('/home')
+      })
     })
   }
 

@@ -37,7 +37,7 @@
   padding-right: 20px;
 }
 .calendarSelected {
-  color: orange !important;
+  color: var(--secondary) !important;
 }
 .weekStat {
   flex: 1;
@@ -52,13 +52,13 @@
   background-color: var(--primary-light);
 }
 #available {
-  background-color: #8BC34A;
+  background-color: var(--green);
 }
 #reserved {
-  background-color: #607D8B;
+  background-color: var(--secondary-text);
 }
 #you {
-  background-color: #FFC107;
+  background-color: var(--secondary);
 }
 #unavailable {
   background-color: #FF5722;
@@ -163,4 +163,10 @@
 }
 .slot:hover {
   box-shadow: var(--general-shadow);
+}
+.unavailable {
+  background-color: var(--secondary-text) !important;
+}
+.me {
+  background-color: var(--secondary) !important;
 }

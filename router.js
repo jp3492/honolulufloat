@@ -10,7 +10,6 @@ const requireSignin = passport.authenticate('local', { session: false })
 module.exports = function(app) {
   app.post('/auth/signin', requireSignin, Authentication.signin)
   app.post('/auth/signup', Authentication.signup)
-  app.get('/api/schedule', requireAuth, Bookings.schedule)
   app.post('/api/book', requireAuth, Bookings.book)
   app.post('/api/cancel', requireAuth, Bookings.cancel)
   app.get('/api/getUser', requireAuth, Profile.getUser)

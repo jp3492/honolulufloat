@@ -32,9 +32,14 @@
   padding: 0;
   margin: 0;
 }
+#appointmentHeader {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--primary-text) !important;
+  pointer-events: none;
+}
 .appointment {
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  background-color: var(--green);
+  background-color: var(--primary-light);
   border-radius: var(--general-border-radius);
   display: flex;
   flex-direction: row;
@@ -42,13 +47,9 @@
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 10px;
+  height: 80px;
+  line-height: 80px;
 }
-#appointmentHeader {
-  background-color: transparent !important;
-  border-bottom: 1px solid var(--primary-text) !important;
-  pointer-events: none;
-}
-
 .appointment * {
   color: var(--primary-text);
 }
@@ -57,28 +58,18 @@
 }
 .appointment > a {
   font-weight: bold;
-  line-height: 60px;
+  line-height: 80px;
   padding-left: var(--general-padding);
   padding-right: var(--general-padding);
 }
-.appointment > a:nth-child(1){
-  width: 100px;
-  text-align: left;
+.appointment > a:nth-child(1) {
+  width: 150px;
 }
-.appointment > a:nth-child(2){
-  width: 100px;
-  text-align: left;
-}
-.appointment > a:nth-child(3){
-  width: 100px;
-  text-align: left;
-}
-.appointment > a:nth-child(4){
+.appointment > a:nth-child(3) {
   flex: 1;
-  text-align: left;
 }
-.appointment > .button {
-  background-color: var(--primary-light);
+.button {
+  background-color: var(--secondary-text);
   height: 40px;
   line-height: 40px;
   width: 120px;
@@ -87,6 +78,8 @@
   font-weight: bold;
   text-align: center;
   border-radius: var(--general-border-radius);
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }
 #noUpcoming {
   list-style-type: none !important;
@@ -95,15 +88,26 @@
 }
 #makeBooking {
   list-style-type: none !important;
-  text-align: right;
   background-color: transparent !important;
   height: 60px;
   line-height: 60px;
   margin-top: 20px !important;
+  display: flex;
+  flex-direction: row;
 }
 #makeBooking > a {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  line-height: 60px;
+}
+#makeBooking > a:nth-child(1) {
+  flex: 1;
+  text-align: left;
+  pointer-events: none;
+  padding-left: var(--large-padding);
+  font-size: 18px;
+  font-weight: bold;
+}
+#makeBooking > a:nth-child(2) {
+  text-align: center;
   padding-left: 35px;
   padding-right: 35px;
   border-radius: var(--general-border-radius);
@@ -111,6 +115,7 @@
   background-color: var(--green);
   cursor: pointer;
   transition: var(--general-transition);
+  font-weight: bold;
 }
 #makeBooking > a:hover {
   box-shadow: var(--general-shadow);

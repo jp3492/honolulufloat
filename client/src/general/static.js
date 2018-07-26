@@ -21,3 +21,7 @@ exports.days = [
   "Saturday",
   "Sunday"
 ]
+exports.tanks = [
+  'Tank 1',
+  'Tank 2'
+]

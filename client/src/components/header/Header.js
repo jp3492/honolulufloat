@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import Modal from '../modal/modal'
 
 import { getUser } from '../../actions'
+import { NAVIGATION } from '../../actions/types'
 
 class Header extends Component {
   componentWillMount(){
@@ -14,17 +15,12 @@ class Header extends Component {
       getUser()
     }
   }
-  componentWillReceiveProps(nextProps){
-    const { authenticated, action: { getUser } } = nextProps
-    if (authenticated !== false) {
-      getUser(authenticated)
-    }
-  }
   renderLinks() {
+    const { dispatch } = this.props
     if (this.props.authenticated) {
       return (
         <div id="menu">
-          <Link style={{ textDecoration: 'none' }} to="/calendar">Calendar</Link>
+          <Link style={{ textDecoration: 'none' }} to="/calendar" onClick={ () => dispatch({ type: NAVIGATION, payload: 'calendar' })}>Calendar</Link>
           <Link style={{ textDecoration: 'none' }} to="/signout">Sign Out</Link>
         </div>
       )

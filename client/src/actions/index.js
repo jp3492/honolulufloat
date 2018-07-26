@@ -1,14 +1,30 @@
 import axios from 'axios'
-import { AUTH_USER, AUTH_ERROR, GET_USER } from './types'
+import { AUTH_USER, AUTH_ERROR, GET_USER, BOOKED, UPDATE_USER, CANCELLED } from './types'
+
+export const cancel = _id => async (dispatch, getState) => {
+  const res = await axios.post('/api/cancel', { _id }, { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
+  dispatch({ type: CANCELLED, payload: res.data })
+}
+
+export const book = (booking, callback) => async (dispatch, getState) => {
+  const res = await axios.post('/api/book', booking, { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
+  dispatch({ type: BOOKED, payload: res.data })
+  if (callback) {
+    callback()
+  }
+}
 
 export const updateProfile = user => async (dispatch, getState) => {
   const res = await axios.post('/api/updateUser', user, { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
-  dispatch({ type: GET_USER, payload: user })
+  dispatch({ type: UPDATE_USER, payload: user })
 }
 
-export const getUser = () => async (dispatch, getState) => {
+export const getUser = callback => async (dispatch, getState) => {
   const res = await axios.get(`/api/getUser`, { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
   dispatch({ type: GET_USER, payload: res.data })
+  if (callback) {
+    callback()
+  }
 }
 
 export const signup = (formProps, callback) => async dispatch => {

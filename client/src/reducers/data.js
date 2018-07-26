@@ -1,4 +1,4 @@
-import { GET_USER, DISPLAY, EDIT } from '../actions/types'
+import { GET_USER, DISPLAY, EDIT, BOOKED, UPDATE_USER, CANCELLED, AUTH_USER } from '../actions/types'
 
 const INITIAL_STATE = {
   user: { firstName: '', lastName: '', email: '', home: null, mobile: null },
@@ -9,6 +9,10 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action) {
   const { payload, type } = action
   switch (type) {
+    case CANCELLED:
+      return { ...state, bookings: state.bookings.filter( b => { return b.user === undefined || (b._id && b._id.toString() !== payload.toString()) }) }
+    case BOOKED:
+      return { ...state, bookings: [ ...state.bookings, payload ] }
     case EDIT:
       if (payload.type === 'user') {
         return { ...state, editUser: { ...state.editUser, [payload.key]: payload.value } }
@@ -20,8 +24,15 @@ export default function(state = INITIAL_STATE, action) {
       } else {
         return { ...state, editUser: null }
       }
-    case GET_USER:
+    case UPDATE_USER:
       return { ...state, user: { _id: payload._id, email: payload.email, firstName: (payload.firstName) ? payload.firstName: '', lastName: (payload.lastName) ? payload.lastName: '', phone: (payload.phone) ? payload.phone: '' } }
+    case AUTH_USER:
+      if (payload === false) {
+        return INITIAL_STATE
+      }
+      return state
+    case GET_USER:
+      return { ...state, bookings: payload.bookings, user: { _id: payload._id, email: payload.email, firstName: (payload.firstName) ? payload.firstName: '', lastName: (payload.lastName) ? payload.lastName: '', phone: (payload.phone) ? payload.phone: '' } }
     default:
       return state
   }

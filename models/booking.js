@@ -6,7 +6,7 @@ const bookingSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user'
   },
-  time: Number,
+  date: Date,
   status: {
     type: String,
     default: 'booked'

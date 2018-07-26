@@ -98,6 +98,12 @@
   width: 30%;
   background-color: var(--green);
   margin-left: 7px !important;
+  font-weight: bold;
+  color: var(--bright-text);
+}
+.cancellation {
+  background-color: var(--orange) !important;
+
 }
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 @-moz-keyframes fadein { from { opacity: 0; } to   { opacity: 1; } }
