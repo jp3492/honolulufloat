@@ -23,8 +23,9 @@ export const updateProfile = user => async (dispatch, getState) => {
 }
 
 export const getUser = callback => async (dispatch, getState) => {
-  const res = await axios.get(`/api/getUser`, { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
-  console.log(res.data);
+  console.log(getState().auth.authenticated);
+  const res = await axios.post('/api/getUser', { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
+  console.log(res);
   dispatch({ type: GET_USER, payload: res.data })
   if (callback) {
     callback()
