@@ -12,6 +12,7 @@ export default function(state = INITIAL_STATE, action) {
     case CANCELLED:
       return { ...state, bookings: state.bookings.filter( b => { return b.user === undefined || (b._id && b._id.toString() !== payload.toString()) }) }
     case BOOKED:
+      console.log(payload);
       return { ...state, bookings: [ ...state.bookings, payload ] }
     case EDIT:
       if (payload.type === 'user') {
