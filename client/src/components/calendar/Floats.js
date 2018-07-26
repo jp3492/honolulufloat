@@ -19,10 +19,10 @@ class Floats extends Component{
       date = now.setDate(now.getDate() + day)
       date = new Date(date)
     }
-    const hasBookings = bookings.filter( b => {
+    const hasBookings = (bookings) ? bookings.filter( b => {
       const thisDate = new Date(b.date)
       return thisDate.getFullYear() === date.getFullYear() && thisDate.getMonth() === date.getMonth() && thisDate.getDate() === date.getDate() && thisDate.getHours() === time + 2
-    })
+    }): []
     const isMe = hasBookings.filter( b => { return b.user !== undefined })
     let className
     if (weekCalendar === true) {
