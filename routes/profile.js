@@ -32,6 +32,7 @@ exports.getUser = async (req, res) => {
           return { date: b._doc.date }
         })
       } catch (e) {
+        console.log('had error');
         return res.status(400).send({ error: 'could not fetch user based on authentication token'})
       }
       console.log(user);

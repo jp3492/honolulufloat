@@ -30,6 +30,7 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
     if (err) { return done(err, false); }
     if (user) {
       console.log('uer found');
+      console.log(user);
       done(null, user);
     } else {
       console.log('user not found');
