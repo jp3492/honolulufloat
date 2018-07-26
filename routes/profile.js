@@ -23,6 +23,7 @@ exports.getUser = async (req, res) => {
         let start = now
         start = start.setDate(start.getDate() - start.getDay())
         start = new Date(start)
+        console.log(config.secret);
         const decoded = jwt.decode(req.headers.authorization, config.secret);
         user = await User.findById(decoded.sub)
         bookings = await Booking.find({ status: 'booked', date: { $gte: start } })
@@ -37,7 +38,7 @@ exports.getUser = async (req, res) => {
         return res.status(400).send({ error: 'could not fetch user based on authentication token'})
       }
       console.log(user);
-      return res.send({ ...user._doc, password: undefined, bookings })
+      return res.send({ email: user.email, firstName: user.firstName, lastName: user.lastName, phone: user.phone, bookings })
     }
     return res.status(400).send({ error: 'authorization header is missing'})
 }
