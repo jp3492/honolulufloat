@@ -33,6 +33,7 @@ exports.getUser = async (req, res) => {
       } catch (e) {
         return res.status(400).send({ error: 'could not fetch user based on authentication token'})
       }
+      console.log(user);
       return res.status(200).send({ ...user._doc, password: undefined, bookings })
     }
     return res.status(400).send({ error: 'authorization header is missing'})
