@@ -14,6 +14,7 @@ exports.updateUser = async (req, res) => {
 }
 exports.getUser = async (req, res) => {
     const { _id } = req.user
+    console.log(Object.keys(req.headers), req.headers.authorization);
     if (req.headers && req.headers.authorization) {
       let user, bookings
       try {

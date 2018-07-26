@@ -24,6 +24,7 @@ export const updateProfile = user => async (dispatch, getState) => {
 
 export const getUser = callback => async (dispatch, getState) => {
   const res = await axios.get(`/api/getUser`, { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
+  console.log(res.data);
   dispatch({ type: GET_USER, payload: res.data })
   if (callback) {
     callback()
