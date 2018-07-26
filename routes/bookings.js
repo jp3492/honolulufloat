@@ -12,7 +12,9 @@ exports.cancel = async (req, res) => {
 }
 
 exports.book = async (req, res) => {
+  console.log('booking');
   const { date } = req.body
+  console.log(req.body);
   const { _id } = req.user
   try {
     const newBooking = new Booking({
