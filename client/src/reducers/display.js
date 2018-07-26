@@ -6,13 +6,17 @@ const INITIAL_STATE = {
   terms: false,
   day: 0,
   week: 0,
-  weekCalendar: false
+  weekCalendar: false,
+  bookingInfo: {}
 }
 
 export default function(state = INITIAL_STATE, action) {
   const { payload, type } = action
   switch (type) {
     case DISPLAY:
+      if (payload.key === 'modal' && state.modal === false) {
+        return { ...state, bookingInfo: payload.value, modal: true }
+      }
       if (payload.value === undefined) {
         return { ...state, [payload.key]: !state[payload.key] }
       }

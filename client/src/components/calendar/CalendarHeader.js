@@ -19,7 +19,7 @@ class CalendarHeader extends Component{
       weekStart.setDate(addTime.getDate() - (addTime.getDay() - 1))
       weekStart = new Date(weekStart)
       weekEnd = addTime
-      weekEnd.setDate(addTime.getDate() + (addTime.getDay() + 6))
+      weekEnd.setDate(addTime.getDate() + (addTime.getDay() + 5))
       weekEnd = new Date(weekEnd)
       timeSpan.start = weekStart.getMonth()+'.'+weekStart.getDate()+'.'+weekStart.getFullYear()
       timeSpan.end = weekEnd.getMonth()+'.'+weekEnd.getDate()+'.'+weekEnd.getFullYear()

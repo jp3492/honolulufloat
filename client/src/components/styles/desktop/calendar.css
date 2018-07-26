@@ -142,6 +142,10 @@
   margin: 0 !important;
   padding: var(--general-padding);
 }
+.float > li:nth-child(1) {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
 .floatHeader {
   list-style-type: none !important;
   height: 20px;

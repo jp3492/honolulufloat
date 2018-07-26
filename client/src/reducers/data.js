@@ -15,7 +15,7 @@ export default function(state = INITIAL_STATE, action) {
       }
       return state
     case DISPLAY:
-      if (payload === 'edit' && state.editUser === null) {
+      if (payload.key === 'edit' && state.editUser === null) {
         return { ...state, editUser: state.user }
       } else {
         return { ...state, editUser: null }

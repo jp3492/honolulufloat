@@ -32,9 +32,9 @@ class Profile extends Component{
     const { edit, action: { updateProfile }, editUser, dispatch } = this.props
     if (edit === true) {
       updateProfile(editUser)
-      return dispatch({ type: DISPLAY, payload: 'edit' })
+      return dispatch({ type: DISPLAY, payload: { key: 'edit' } })
     }
-    return dispatch({ type: DISPLAY, payload: 'edit' })
+    return dispatch({ type: DISPLAY, payload: { key: 'edit' } }) 
   }
   render(){
     const { user, edit } = this.props
