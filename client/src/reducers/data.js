@@ -13,6 +13,8 @@ export default function(state = INITIAL_STATE, action) {
       return { ...state, bookings: state.bookings.filter( b => { return b.user === undefined || (b._id && b._id.toString() !== payload.toString()) }) }
     case BOOKED:
       console.log(payload);
+      let newBookings = state.bookings
+      newBookings.push(typeof payload)
       return { ...state, bookings: [ ...state.bookings, payload ] }
     case EDIT:
       if (payload.type === 'user') {
