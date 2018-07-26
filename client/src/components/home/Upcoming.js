@@ -27,7 +27,7 @@ class Upcoming extends Component{
   }
   render(){
     const { bookings } = this.props
-    const booked = bookings.filter( b => { return b.status === 'booked' })
+    const booked = (bookings) ? bookings.filter( b => { return b.status === 'booked' }): []
     const mapOver = booked.slice(0, 6).sort((a, b) => { return new Date(a.date) - new Date(b.date) })
     return (
       <ul id="upcoming">
