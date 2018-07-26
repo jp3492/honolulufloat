@@ -29,8 +29,10 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
   User.findById(payload.sub, function(err, user) {
     if (err) { return done(err, false); }
     if (user) {
+      console.log('uer found');
       done(null, user);
     } else {
+      console.log('user not found');
       done(null, false);
     }
   });
