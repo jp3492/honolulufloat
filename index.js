@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser')
 const jwt = require('jwt-simple')
 const config = require('./config/config')
 
-mongoose.connect('mongodb://localhost:27017/float')
+mongoose.connect(config.mongoUri)
 
 app.use(cors())
 app.use(cookieParser())

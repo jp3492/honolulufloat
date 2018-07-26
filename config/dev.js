@@ -1,4 +1,4 @@
 module.exports = {
   secret: 'magicforlife',
-  mongo_uri: ''
+  mongoUri: 'mongodb://admin:Testing1@ds219641.mlab.com:19641/float-dev'
 }

@@ -1,9 +1,12 @@
 import axios from 'axios'
 import { AUTH_USER, AUTH_ERROR, GET_USER, BOOKED, UPDATE_USER, CANCELLED } from './types'
 
-export const cancel = _id => async (dispatch, getState) => {
+export const cancel = (_id, callback) => async (dispatch, getState) => {
   const res = await axios.post('/api/cancel', { _id }, { headers: { 'Content-Type':'application/json','Authorization' : getState().auth.authenticated}})
   dispatch({ type: CANCELLED, payload: res.data })
+  if (callback) {
+    callback()
+  }
 }
 
 export const book = (booking, callback) => async (dispatch, getState) => {

@@ -36,8 +36,9 @@ class Modal extends Component{
                 })
               }:
               () => {
-                cancel(_id)
-                dispatch({ type: DISPLAY, payload: { key: 'modal' } })
+                cancel(_id, () => {
+                  dispatch({ type: DISPLAY, payload: { key: 'modal' } })
+                })                
               }
             }>{(booking === true) ? 'Book': 'Cancel'}</a>
           </div>
